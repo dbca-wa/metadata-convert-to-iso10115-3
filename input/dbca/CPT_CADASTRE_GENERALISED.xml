@@ -1,0 +1,472 @@
+﻿<metadata xml:lang="en">
+  <Esri>
+    <CreaDate>20181114</CreaDate>
+    <CreaTime>10564500</CreaTime>
+    <ArcGISFormat>1.0</ArcGISFormat>
+    <ArcGISstyle>ISO 19139 Metadata Implementation Specification</ArcGISstyle>
+    <SyncOnce>FALSE</SyncOnce>
+    <DataProperties>
+      <lineage>
+        <Process ToolSource="c:\program files (x86)\arcgis\desktop10.6\ArcToolbox\Toolboxes\Data Management Tools.tbx\TruncateTable" Date="20181114" Time="094110" Name="" export="">TruncateTable "Database Connections\EBASE to ECOBSU.sde\EBASE.CPT_CADASTRE_GENERALISED"</Process>
+        <Process ToolSource="c:\program files (x86)\arcgis\desktop10.6\ArcToolbox\Toolboxes\Data Management Tools.tbx\TruncateTable" Date="20190222" Time="140735" Name="" export="">TruncateTable "Database Connections\EBASE to ECOBSP.sde\EBASE.CPT_CADASTRE_GENERALISED"</Process>
+        <Process ToolSource="c:\program files (x86)\arcgis\desktop10.6\ArcToolbox\Toolboxes\Data Management Tools.tbx\TruncateTable" Date="20190509" Time="105415" Name="" export="">TruncateTable "Database Connections\EBASE to ECOBSP.sde\EBASE.CPT_CADASTRE_GENERALISED"</Process>
+        <Process ToolSource="c:\program files (x86)\arcgis\desktop10.6\ArcToolbox\Toolboxes\Data Management Tools.tbx\TruncateTable" Date="20190823" Time="092738" Name="" export="">TruncateTable "Database Connections\EBASE to ECOBSP.sde\EBASE.CPT_CADASTRE_GENERALISED"</Process>
+        <Process ToolSource="c:\program files (x86)\arcgis\desktop10.6\ArcToolbox\Toolboxes\Data Management Tools.tbx\DeleteFeatures" Date="20191023" Time="123206" Name="" export="">DeleteFeatures "Database Connections\EBASE_ECOBSP.sde\EBASE.CPT_CADASTRE_GENERALISED"</Process>
+        <Process ToolSource="c:\program files (x86)\arcgis\desktop10.6\ArcToolbox\Toolboxes\Data Management Tools.tbx\TruncateTable" Date="20200207" Time="144156" Name="" export="">TruncateTable "Database Connections\EBASE to ECOBSP.sde\EBASE.CPT_CADASTRE_GENERALISED"</Process>
+        <Process ToolSource="c:\program files (x86)\arcgis\desktop10.6\ArcToolbox\Toolboxes\Data Management Tools.tbx\DeleteFeatures" Date="20200421" Time="162706" Name="" export="">DeleteFeatures "Database Connections\EBASE_ECOBSP.sde\EBASE.CPT_CADASTRE_GENERALISED"</Process>
+        <Process ToolSource="c:\program files (x86)\arcgis\desktop10.6\ArcToolbox\Toolboxes\Data Management Tools.tbx\TruncateTable" Date="20200731" Time="163825" Name="" export="">TruncateTable "Database Connections\EBASE to ECOBSP.sde\EBASE.CPT_CADASTRE_GENERALISED"</Process>
+      </lineage>
+      <itemProps>
+        <itemName Sync="TRUE">EBASE.CPT_CADASTRE_GENERALISED</itemName>
+        <nativeExtBox>
+          <westBL Sync="TRUE">96.816817</westBL>
+          <eastBL Sync="TRUE">129.019425</eastBL>
+          <southBL Sync="TRUE">-35.192183</southBL>
+          <northBL Sync="TRUE">-10.412390</northBL>
+          <exTypeCode Sync="TRUE">1</exTypeCode>
+        </nativeExtBox>
+        <itemLocation>
+          <linkage Sync="TRUE">Server=sde; Service=sde:oracle$sde:oracle11g:ecobsp; User=ebase; Version=SDE.DEFAULT</linkage>
+          <protocol Sync="TRUE">ArcSDE Connection</protocol>
+        </itemLocation>
+        <imsContentType Sync="TRUE">002</imsContentType>
+      </itemProps>
+      <coordRef>
+        <type Sync="TRUE">Geographic</type>
+        <geogcsn Sync="TRUE">GCS_GDA_1994</geogcsn>
+        <csUnits Sync="TRUE">Angular Unit: Degree (0.017453)</csUnits>
+        <peXml Sync="TRUE">&lt;GeographicCoordinateSystem xsi:type='typens:GeographicCoordinateSystem' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:typens='http://www.esri.com/schemas/ArcGIS/10.6'&gt;&lt;WKT&gt;GEOGCS[&amp;quot;GCS_GDA_1994&amp;quot;,DATUM[&amp;quot;D_GDA_1994&amp;quot;,SPHEROID[&amp;quot;GRS_1980&amp;quot;,6378137.0,298.257222101]],PRIMEM[&amp;quot;Greenwich&amp;quot;,0.0],UNIT[&amp;quot;Degree&amp;quot;,0.0174532925199433],AUTHORITY[&amp;quot;EPSG&amp;quot;,4283]]&lt;/WKT&gt;&lt;XOrigin&gt;-400&lt;/XOrigin&gt;&lt;YOrigin&gt;-400&lt;/YOrigin&gt;&lt;XYScale&gt;56512727.316087894&lt;/XYScale&gt;&lt;ZOrigin&gt;0&lt;/ZOrigin&gt;&lt;ZScale&gt;1&lt;/ZScale&gt;&lt;MOrigin&gt;0&lt;/MOrigin&gt;&lt;MScale&gt;1&lt;/MScale&gt;&lt;XYTolerance&gt;3.5390258000000004e-08&lt;/XYTolerance&gt;&lt;ZTolerance&gt;1.8626451520000001e-06&lt;/ZTolerance&gt;&lt;MTolerance&gt;1.9999999999999998e-05&lt;/MTolerance&gt;&lt;HighPrecision&gt;true&lt;/HighPrecision&gt;&lt;LeftLongitude&gt;-180&lt;/LeftLongitude&gt;&lt;WKID&gt;4283&lt;/WKID&gt;&lt;LatestWKID&gt;4283&lt;/LatestWKID&gt;&lt;/GeographicCoordinateSystem&gt;</peXml>
+      </coordRef>
+    </DataProperties>
+    <SyncDate>20200731</SyncDate>
+    <SyncTime>16500400</SyncTime>
+    <ModDate>20200731</ModDate>
+    <ModTime>16511900</ModTime>
+    <ArcGISProfile>ANZLIC</ArcGISProfile>
+    <locales>
+      <locale language="aus" country="AU" />
+    </locales>
+    <scaleRange>
+      <minScale>150000000</minScale>
+      <maxScale>5000</maxScale>
+    </scaleRange>
+  </Esri>
+  <Binary>
+    <Thumbnail>
+      <Data EsriPropertyType="PictureX">/9j/4AAQSkZJRgABAQEAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a
+HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy
+MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCACFAMgDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iii
+gAoprOEKghjuOOBnH19KdQAUUUUAFFFFADUcSIrgMAwyNykH8QeRTqKKACiiigAooooAKKKKACii
+igAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoJABJOAKK
+a6JLG0ciq6MCrKwyCD1BFADqKRVCqFUAKBgAdq5zxLrMtsgs7aOXzJePMTIPHXaQOoyP1FTKSitQ
+NG71/TrC5MFzP5ZCk7sZGfTjknkVZsNStNSiMlrMHAxuXoy59R1FedjT5NPvk+1F/mCksw8z95t+
+6No6Ngc+gx71pXeoQ6NpNpcWk7fb1ZYmMg4JIG5X46DH1FYLEe8lbcdjvKKyfDupXGqaaZ7lrdpB
+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
+UUAf/9k=</Data>
+    </Thumbnail>
+  </Binary>
+  <mdChar>
+    <CharSetCd value="004" />
+  </mdChar>
+  <mdContact>
+    <rpIndName>Geoffrey Banks</rpIndName>
+    <role>
+      <RoleCd value="002" />
+    </role>
+    <rpCntInfo>
+      <cntAddress addressType="postal">
+        <delPoint>17 Dick Perry Avenue</delPoint>
+        <city>Perth</city>
+        <adminArea>Western Australia</adminArea>
+        <postCode>6151</postCode>
+        <eMailAdd>geoffrey.banks@dbca.wa.gov.au</eMailAdd>
+        <country>AU</country>
+      </cntAddress>
+      <cntPhone>
+        <voiceNum>08 9219 9562</voiceNum>
+        <faxNum>08 9219 9357</faxNum>
+      </cntPhone>
+    </rpCntInfo>
+    <displayName>Geoffrey Banks</displayName>
+    <rpOrgName>GIS Branch, Department of Biodiversity, Conservation and Attractions</rpOrgName>
+    <rpPosName>Spatial Database Administrator</rpPosName>
+  </mdContact>
+  <distInfo>
+    <distFormat>
+      <formatVer>10.3.1</formatVer>
+      <formatName Sync="TRUE">SDE Feature Class</formatName>
+    </distFormat>
+    <distributor>
+      <distorCont>
+        <rpIndName>Geoffrey Banks</rpIndName>
+        <role>
+          <RoleCd value="005" />
+        </role>
+        <rpCntInfo>
+          <cntAddress addressType="postal">
+            <delPoint>17 Dick Perry Avenue</delPoint>
+            <city>Perth</city>
+            <adminArea>Western Australia</adminArea>
+            <postCode>6151</postCode>
+            <eMailAdd>geoffrey.banks@dbca.wa.gov.au</eMailAdd>
+            <country>AU</country>
+          </cntAddress>
+          <cntPhone>
+            <voiceNum>08 9219 9562</voiceNum>
+            <faxNum>08 9219 9357</faxNum>
+          </cntPhone>
+        </rpCntInfo>
+        <displayName>Geoffrey Banks</displayName>
+        <rpOrgName>GIS Branch, Department of Biodiversity, Conservation and Attractions</rpOrgName>
+        <rpPosName>Spatial Database Administrator</rpPosName>
+      </distorCont>
+    </distributor>
+  </distInfo>
+  <dataIdInfo>
+    <idCitation>
+      <resTitle Sync="FALSE">Generalised Cadastre</resTitle>
+      <resAltTitle>CPT_CADASTRE_GENERALISED</resAltTitle>
+      <date>
+        <createDate>2017-12-01T00:00:00</createDate>
+        <pubDate>2020-07-31T00:00:00</pubDate>
+        <reviseDate>2020-06-30T00:00:00</reviseDate>
+      </date>
+      <citRespParty>
+        <rpIndName>Geoffrey Banks</rpIndName>
+        <role>
+          <RoleCd value="002" />
+        </role>
+        <rpCntInfo>
+          <cntAddress addressType="postal">
+            <delPoint>17 Dick Perry Avenue</delPoint>
+            <city>Perth</city>
+            <adminArea>Western Australia</adminArea>
+            <postCode>6151</postCode>
+            <eMailAdd>geoffrey.banks@dbca.wa.gov.au</eMailAdd>
+            <country>AU</country>
+          </cntAddress>
+          <cntPhone>
+            <voiceNum>08 9219 9562</voiceNum>
+            <faxNum>08 9219 9357</faxNum>
+          </cntPhone>
+        </rpCntInfo>
+        <rpOrgName>GIS Branch, Department of Biodiversity, Conservation and Attractions</rpOrgName>
+        <rpPosName>Spatial Database Administrator</rpPosName>
+      </citRespParty>
+      <citRespParty>
+        <rpIndName>Geoffrey Banks</rpIndName>
+        <role>
+          <RoleCd value="005" />
+        </role>
+        <rpCntInfo>
+          <cntAddress addressType="postal">
+            <delPoint>17 Dick Perry Avenue</delPoint>
+            <city>Perth</city>
+            <adminArea>Western Australia</adminArea>
+            <postCode>6151</postCode>
+            <eMailAdd>geoffrey.banks@dbca.wa.gov.au</eMailAdd>
+            <country>AU</country>
+          </cntAddress>
+          <cntPhone>
+            <voiceNum>08 9219 9562</voiceNum>
+            <faxNum>08 9219 9357</faxNum>
+          </cntPhone>
+        </rpCntInfo>
+        <rpOrgName>GIS Branch, Department of Biodiversity, Conservation and Attractions</rpOrgName>
+        <rpPosName>Spatial Database Administrator</rpPosName>
+      </citRespParty>
+      <presForm>
+        <PresFormCd value="005" Sync="TRUE" />
+      </presForm>
+    </idCitation>
+    <dataExt>
+      <exDesc>Extends across Western Australia</exDesc>
+    </dataExt>
+    <searchKeys>
+      <keyword>Cadastre</keyword>
+      <keyword>Generalised</keyword>
+    </searchKeys>
+    <idPurp>The generalised cadastre is prepared for distribution via CDDP for small scale map production. It was originally created to support area calculations outside DBCA for fire reporting but has been superceded by the Bushfire Reporting layer.</idPurp>
+    <idAbs>The generalised state tenure is created by dissolving the SCDB dataset based on render label. The SCDB cadastre datais mainatained quarterly based on the cadastre dataset supplied by Landgate generated to support the DBCA tenure requirements.</idAbs>
+    <dataChar>
+      <CharSetCd value="004" />
+    </dataChar>
+    <suppInfo>Updated in sync with the quarterly cadastre publication.</suppInfo>
+    <idStatus>
+      <ProgCd value="001" />
+    </idStatus>
+    <idPoC>
+      <rpIndName>Geoffrey Banks</rpIndName>
+      <role>
+        <RoleCd value="002" />
+      </role>
+      <rpCntInfo>
+        <cntAddress addressType="postal">
+          <delPoint>17 Dick Perry Avenue</delPoint>
+          <city>Perth</city>
+          <adminArea>Western Australia</adminArea>
+          <postCode>6151</postCode>
+          <eMailAdd>geoffrey.banks@dbca.wa.gov.au</eMailAdd>
+          <country>AU</country>
+        </cntAddress>
+        <cntPhone>
+          <voiceNum>08 9219 9562</voiceNum>
+          <faxNum>08 9219 9357</faxNum>
+        </cntPhone>
+      </rpCntInfo>
+    </idPoC>
+    <resMaint>
+      <maintFreq>
+        <MaintFreqCd value="006" />
+      </maintFreq>
+      <maintCont>
+        <rpIndName>Geoffrey Banks</rpIndName>
+        <role>
+          <RoleCd value="002" />
+        </role>
+        <rpCntInfo>
+          <cntAddress addressType="postal">
+            <delPoint>17 Dick Perry Avenue</delPoint>
+            <city>Perth</city>
+            <adminArea>Western Australia</adminArea>
+            <postCode>6151</postCode>
+            <eMailAdd>geoffrey.banks@dbca.wa.gov.au</eMailAdd>
+            <country>AU</country>
+          </cntAddress>
+          <cntPhone>
+            <voiceNum>08 9219 9562</voiceNum>
+            <faxNum>08 9219 9357</faxNum>
+          </cntPhone>
+        </rpCntInfo>
+        <displayName>Geoffrey Banks</displayName>
+        <rpOrgName>GIS Branch, Department of Biodiversity, Conservation and Attractions</rpOrgName>
+        <rpPosName>Spatial Database Administrator</rpPosName>
+      </maintCont>
+    </resMaint>
+    <resConst>
+      <Consts>
+        <useLimit>Not to be used outside DBCA without authority of the custodian</useLimit>
+      </Consts>
+    </resConst>
+    <idCredit>Department of Biodiversity, Conservation and Attractions</idCredit>
+    <envirDesc Sync="TRUE"> Version 6.2 (Build 9200) ; Esri ArcGIS 10.6.1.9270</envirDesc>
+    <dataLang>
+      <languageCode value="eng" Sync="TRUE" />
+      <countryCode value="AUS" Sync="TRUE" />
+    </dataLang>
+    <spatRpType>
+      <SpatRepTypCd value="001" Sync="TRUE" />
+    </spatRpType>
+    <dataExt>
+      <geoEle>
+        <GeoBndBox esriExtentType="search">
+          <exTypeCode Sync="TRUE">1</exTypeCode>
+          <westBL Sync="TRUE">96.816817</westBL>
+          <eastBL Sync="TRUE">129.019425</eastBL>
+          <northBL Sync="TRUE">-10.412390</northBL>
+          <southBL Sync="TRUE">-35.192183</southBL>
+        </GeoBndBox>
+      </geoEle>
+    </dataExt>
+    <tpCat>
+      <TopicCatCd value="003" />
+    </tpCat>
+  </dataIdInfo>
+  <dqInfo>
+    <dqScope>
+      <scpLvl>
+        <ScopeCd value="005" />
+      </scpLvl>
+    </dqScope>
+    <report type="DQAbsExtPosAcc" dimension="horizontal">
+      <measResult>
+        <ConResult>
+          <conExpl>Generalised polygon boundaries are based on SCDB boundaries and very with survey accuracy across the state.</conExpl>
+        </ConResult>
+      </measResult>
+    </report>
+    <report type="DQNonQuanAttAcc" dimension="">
+      <measResult>
+        <ConResult>
+          <conExpl>Attribution is complete. Generalisation is based on the render label and is consistent with the attribution of the base cadastre data produced by DBCA GIS Branch.</conExpl>
+        </ConResult>
+      </measResult>
+    </report>
+    <report type="DQTopConsis" dimension="horizontal">
+      <measResult>
+        <ConResult>
+          <conExpl>Data is clean and topologicaly correct.</conExpl>
+        </ConResult>
+      </measResult>
+    </report>
+    <report type="DQCompOm" dimension="horizontal">
+      <measResult>
+        <ConResult>
+          <conExpl>Data is complete.</conExpl>
+        </ConResult>
+      </measResult>
+    </report>
+    <dataLineage>
+      <statement>The generalise cadastre is a dissolved version of the generic state cadastre published in corporate data for DBCA. This data is based on the Landgate cadastre polygon shape file augmented with additional attributes to meet DBCA operational requirements from CSV file data. The dissolve was processed from the CPT_SCDB_CADASTRE layer into the default gdb file. The final dissolved layer is then loaded into ECOBSU. CPT_CADASTRE_GENERALISED for publication to CDDP.</statement>
+    </dataLineage>
+  </dqInfo>
+  <eainfo>
+    <detailed Name="EBASE.CPT_CADASTRE_GENERALISED">
+      <enttyp>
+        <enttypl Sync="TRUE">EBASE.CPT_CADASTRE_GENERALISED</enttypl>
+        <enttypt Sync="TRUE">Feature Class</enttypt>
+        <enttypc Sync="TRUE">328831</enttypc>
+      </enttyp>
+      <attr>
+        <attrlabl Sync="TRUE">OBJECTID</attrlabl>
+        <attalias Sync="TRUE">OBJECTID</attalias>
+        <attrtype Sync="TRUE">OID</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">10</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+        <attrdef Sync="TRUE">Internal feature number.</attrdef>
+        <attrdefs Sync="TRUE">Esri</attrdefs>
+        <attrdomv>
+          <udom Sync="TRUE">Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl Sync="TRUE">CDG_LEGEND</attrlabl>
+        <attalias Sync="TRUE">Legend</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">50</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+        <attrdef>Legend tenure description.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl Sync="TRUE">SHAPE</attrlabl>
+        <attalias Sync="TRUE">SHAPE</attalias>
+        <attrtype Sync="TRUE">Geometry</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+        <attrdef Sync="TRUE">Feature geometry.</attrdef>
+        <attrdefs Sync="TRUE">Esri</attrdefs>
+        <attrdomv>
+          <udom Sync="TRUE">Coordinates defining the features.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl Sync="TRUE">SHAPE.AREA</attrlabl>
+        <attalias Sync="TRUE">SHAPE.AREA</attalias>
+        <attrtype Sync="TRUE">Double</attrtype>
+        <attwidth Sync="TRUE">0</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl Sync="TRUE">SHAPE.LEN</attrlabl>
+        <attalias Sync="TRUE">SHAPE.LEN</attalias>
+        <attrtype Sync="TRUE">Double</attrtype>
+        <attwidth Sync="TRUE">0</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+    </detailed>
+  </eainfo>
+  <mdLang>
+    <languageCode value="eng" Sync="TRUE" />
+    <countryCode value="AUS" Sync="TRUE" />
+  </mdLang>
+  <mdHrLv>
+    <ScopeCd value="005" Sync="TRUE" />
+  </mdHrLv>
+  <mdHrLvName Sync="TRUE">dataset</mdHrLvName>
+  <refSysInfo>
+    <RefSystem>
+      <refSysID>
+        <identCode code="4283" Sync="TRUE" />
+        <idCodeSpace Sync="TRUE">EPSG</idCodeSpace>
+        <idVersion Sync="TRUE">8.3.4(3.0.1)</idVersion>
+      </refSysID>
+    </RefSystem>
+  </refSysInfo>
+  <spatRepInfo>
+    <VectSpatRep>
+      <geometObjs Name="EBASE.CPT_CADASTRE_GENERALISED">
+        <geoObjTyp>
+          <GeoObjTypCd value="002" Sync="TRUE" />
+        </geoObjTyp>
+        <geoObjCnt Sync="TRUE">328831</geoObjCnt>
+      </geometObjs>
+      <topLvl>
+        <TopoLevCd value="001" Sync="TRUE" />
+      </topLvl>
+    </VectSpatRep>
+  </spatRepInfo>
+  <spdoinfo>
+    <ptvctinf>
+      <esriterm Name="EBASE.CPT_CADASTRE_GENERALISED">
+        <efeatyp Sync="TRUE">Simple</efeatyp>
+        <efeageom code="4" Sync="TRUE" />
+        <esritopo Sync="TRUE">FALSE</esritopo>
+        <efeacnt Sync="TRUE">328831</efeacnt>
+        <spindex Sync="TRUE">TRUE</spindex>
+        <linrefer Sync="TRUE">FALSE</linrefer>
+      </esriterm>
+    </ptvctinf>
+  </spdoinfo>
+  <mdDateSt Sync="TRUE">20200731</mdDateSt>
+  <mdFileID>A2784FA6-12EA-4872-AC7A-7FB6827C9405</mdFileID>
+</metadata>
