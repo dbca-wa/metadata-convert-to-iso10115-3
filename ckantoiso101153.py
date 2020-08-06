@@ -73,6 +73,14 @@ def ckan_dataset_to_19115(dataset):
                 E(n("gco:CharacterString"), value)
             )
 
+    def mri_credit(value):
+        if value is None:
+            return  E(n("mri:credit"), na("gco:nilReason", "missing"))
+        else:
+            return E(n("mri:credit"),
+                E(n("gco:CharacterString"), value)
+            )
+
     E = ElementMaker(namespace=nsmap["mdb"], nsmap=nsmap)
     doc = E("MD_Metadata", na("xsi:schemaLocation", schemaLocations),
         E("metadataIdentifier", 
@@ -166,6 +174,7 @@ def ckan_dataset_to_19115(dataset):
                     )
                 ),
                 mri_abstract(ds("notes", None)),
+                mri_credit(ds("organization.title", None))
             )
         )
     )

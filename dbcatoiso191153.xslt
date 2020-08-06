@@ -134,6 +134,16 @@
                             <mri:abstract gco:nilReason="missing"/>
                         </xsl:otherwise>
                     </xsl:choose>
+                    <xsl:choose>
+                        <xsl:when test="/metadata/dataIdInfo/idCredit">
+                            <mri:credit>
+                                <gco:CharacterString><xsl:value-of select="/metadata/dataIdInfo/idCredit"/></gco:CharacterString>
+                            </mri:credit>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <mri:credit gco:nilReason="missing"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </mri:MD_DataIdentification>
             </mdb:identificationInfo>
         </mdb:MD_Metadata>
