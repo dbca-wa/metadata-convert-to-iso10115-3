@@ -122,6 +122,16 @@
                                     <cit:title gco:nilReason="missing"/>
                                 </xsl:otherwise>
                             </xsl:choose>
+                            <xsl:choose>
+                                <xsl:when test="/metadata/dataIdInfo/idCitation/resAltTitle">
+                                    <cit:alternateTitle>
+                                        <gco:CharacterString><xsl:value-of select="/metadata/dataIdInfo/idCitation/resAltTitle"/></gco:CharacterString>
+                                    </cit:alternateTitle>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <cit:alternateTitle gco:nilReason="missing"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
                         </cit:CI_Citation>
                     </mri:citation>
                     <xsl:choose>

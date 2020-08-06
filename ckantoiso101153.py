@@ -101,6 +101,14 @@ def ckan_dataset_to_19115(dataset):
             descriptiveKeywords_element.append(keywords_element)
             return descriptiveKeywords_element
 
+    def cit_alternateTitle(value):
+        if value is None:
+            return  E(n("mri:descriptiveKeywords"), na("gco:nilReason", "missing"))
+        else:
+            return E(n("cit:alternateTitle"),
+                E(n("gco:CharacterString"), value)
+            )
+
     E = ElementMaker(namespace=nsmap["mdb"], nsmap=nsmap)
     doc = E("MD_Metadata", na("xsi:schemaLocation", schemaLocations),
         E("metadataIdentifier", 
@@ -190,7 +198,8 @@ def ckan_dataset_to_19115(dataset):
                     E(n("cit:CI_Citation"),
                         E(n("cit:title"),
                             E(n("gco:CharacterString"), ds("title"))
-                        )
+                        ),
+                        cit_alternateTitle(ds("name", None)),
                     )
                 ),
                 mri_abstract(ds("notes", None)),
