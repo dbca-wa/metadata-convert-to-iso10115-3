@@ -47,15 +47,21 @@ def ckan_dataset_to_19115(dataset):
         return "{{{}}}{}".format(nsmap[namespace], key)
     def na(key, value):
         return {n(key):value}
-    def ds(key, default=""):
+    
+    def ds(full_key, default=""):
         global misses, hit
-        if key in dataset:
-            tally(hit, key, dataset["id"])
-            return dataset[key]
-        else:
-            tally(misses, key, dataset["id"])
-            #print("miss {}/hit {}: {}, {}".format(missing, hit, dataset["id"], key))
-            return default
+        keys = full_key.split(".")
+        data = dataset
+        while len(keys) > 0:
+            key = keys[0]
+            if key in dataset:
+                data = data[key]
+                keys = keys[1:]
+            else:
+                tally(misses, full_key, dataset["id"])
+                return default
+        tally(hit, key, dataset["id"])
+        return data
 
     def cit_data(value):
         if value is None:

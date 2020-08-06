@@ -19,10 +19,12 @@ def convert_xml_file(source, xslt_file, dest_dir):
 
 def convert_xml_dir(dir_path, xslt, dest_dir):
     for file_path in glob.glob(dir_path):
+        print(file_path)
         convert_xml_file(file_path, xslt, dest_dir)
 
 if __name__ == "__main__":
     #convert_xml_file("input/dbca/apiary-dbca.xml", "dbcatoiso191153.xslt", "output/dbca")
-    convert_xml_dir("input/dbca/*.xml", "dbcatoiso191153.xslt", "output/dbca")
+    convert_xml_dir(r"input\dbca\*.xml", "dbcatoiso191153.xslt", "output\dbca")
+    
 
 
