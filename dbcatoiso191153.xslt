@@ -144,6 +144,22 @@
                             <mri:credit gco:nilReason="missing"/>
                         </xsl:otherwise>
                     </xsl:choose>
+                    <xsl:choose>
+                        <xsl:when test="/metadata/dataIdInfo/searchKeys/keyword">
+                            <mri:descriptiveKeywords>
+                                <mri:MD_Keywords>
+                                    <xsl:for-each select="/metadata/dataIdInfo/searchKeys/keyword">
+                                        <mri:keyword>
+                                            <gco:CharacterString><xsl:value-of select="."/></gco:CharacterString>
+                                        </mri:keyword>
+                                    </xsl:for-each>
+                                </mri:MD_Keywords>
+                            </mri:descriptiveKeywords>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <mri:descriptiveKeywords gco:nilReason="missing"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </mri:MD_DataIdentification>
             </mdb:identificationInfo>
         </mdb:MD_Metadata>

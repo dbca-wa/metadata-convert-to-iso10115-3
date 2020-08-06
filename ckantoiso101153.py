@@ -87,6 +87,20 @@ def ckan_dataset_to_19115(dataset):
                 E(n("gco:CharacterString"), value)
             )
 
+    def mri_descriptiveKeywords(values):
+        if values is None:
+            return  E(n("mri:descriptiveKeywords"), na("gco:nilReason", "missing"))
+        else:
+            descriptiveKeywords_element = E(n("mri:descriptiveKeywords"))
+            keywords_element = E(n("mri:MD_Keywords"))
+            for value in values:
+                keyword_element = E(n("mri:keyword"),
+                    E(n("gco:CharacterString"), value["name"])
+                )
+                keywords_element.append(keyword_element)
+            descriptiveKeywords_element.append(keywords_element)
+            return descriptiveKeywords_element
+
     E = ElementMaker(namespace=nsmap["mdb"], nsmap=nsmap)
     doc = E("MD_Metadata", na("xsi:schemaLocation", schemaLocations),
         E("metadataIdentifier", 
@@ -180,7 +194,8 @@ def ckan_dataset_to_19115(dataset):
                     )
                 ),
                 mri_abstract(ds("notes", None)),
-                mri_credit(ds("organization.title", None))
+                mri_credit(ds("organization.title", None)),
+                mri_descriptiveKeywords(ds("tags", None)),
             )
         )
     )
