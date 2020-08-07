@@ -24,7 +24,7 @@
                 xmlns:cat="http://standards.iso.org/iso/19115/-3/cat/1.0"
                 xmlns:gfc="http://standards.iso.org/iso/19110/gfc/1.1"
                 xmlns:gml="http://www.opengis.net/gml/3.2"
-                xsi:schemaLocation="http://standards.iso.org/iso/19115/-3/mdb/2.0 http://standards.iso.org/iso/19115/-3/mdb/2.0/mdb.xsd http://standards.iso.org/iso/19110/gfc/1.1 http://standards.iso.org/iso/19110/gfc/1.1/gfc.xsd http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd "
+                xsi:schemaLocation="http://standards.iso.org/iso/19115/-3/mdb/2.0 http://standards.iso.org/iso/19115/-3/mdb/2.0/mdb.xsd http://standards.iso.org/iso/19110/gfc/1.1 https://standards.iso.org/iso/19110/gfc/1.1/featureCatalogue.xsd http://standards.iso.org/iso/19115/-3/cit/2.0 https://standards.iso.org/iso/19115/-3/cit/2.0/citation.xsd http://standards.iso.org/iso/19115/-3/gex/1.0 https://standards.iso.org/iso/19115/-3/gex/1.0/extent.xsd http://standards.iso.org/iso/19115/-3/mcc/1.0 https://standards.iso.org/iso/19115/-3/mcc/1.0/mcc.xsd http://standards.iso.org/iso/19115/-3/mmi/1.0 https://standards.iso.org/iso/19115/-3/mmi/1.0/maintenance.xsd http://standards.iso.org/iso/19115/-3/mri/1.0 https://standards.iso.org/iso/19115/-3/mri/1.0/identification.xsd http://standards.iso.org/iso/19115/-3/gco/1.0 https://standards.iso.org/iso/19115/-3/gco/1.0/baseTypes2014.xsd "
                 version="1.0"
                 >
     <xsl:template match="/">
@@ -154,6 +154,75 @@
                             <mri:credit gco:nilReason="missing"/>
                         </xsl:otherwise>
                     </xsl:choose>
+                    <mri:resourceMaintenance>
+                        <mmi:MD_MaintenanceInformation>
+                            <xsl:choose>
+                                <xsl:when test="/metadata/dataIdInfo/resMaint/maintFreq/MaintFreqCd/@value[. = '001']">
+                                    <mmi:maintenanceAndUpdateFrequency>
+                                        <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="continual"/>
+                                    </mmi:maintenanceAndUpdateFrequency>
+                                </xsl:when>
+                                <xsl:when test="/metadata/dataIdInfo/resMaint/maintFreq/MaintFreqCd/@value[. = '002']">
+                                    <mmi:maintenanceAndUpdateFrequency>
+                                        <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="daily"/>
+                                    </mmi:maintenanceAndUpdateFrequency>
+                                </xsl:when>
+                                <xsl:when test="/metadata/dataIdInfo/resMaint/maintFreq/MaintFreqCd/@value[. = '003']">
+                                    <mmi:maintenanceAndUpdateFrequency>
+                                        <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="weekly"/>
+                                    </mmi:maintenanceAndUpdateFrequency>
+                                </xsl:when>
+                                <xsl:when test="/metadata/dataIdInfo/resMaint/maintFreq/MaintFreqCd/@value[. = '004']">
+                                    <mmi:maintenanceAndUpdateFrequency>
+                                        <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="fortnightly"/>
+                                    </mmi:maintenanceAndUpdateFrequency>
+                                </xsl:when>
+                                <xsl:when test="/metadata/dataIdInfo/resMaint/maintFreq/MaintFreqCd/@value[. = '005']">
+                                    <mmi:maintenanceAndUpdateFrequency>
+                                        <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="monthly"/>
+                                    </mmi:maintenanceAndUpdateFrequency>
+                                </xsl:when>
+                                <xsl:when test="/metadata/dataIdInfo/resMaint/maintFreq/MaintFreqCd/@value[. = '006']">
+                                    <mmi:maintenanceAndUpdateFrequency>
+                                        <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="quarterly"/>
+                                    </mmi:maintenanceAndUpdateFrequency>
+                                </xsl:when>
+                                <xsl:when test="/metadata/dataIdInfo/resMaint/maintFreq/MaintFreqCd/@value[. = '007']">
+                                    <mmi:maintenanceAndUpdateFrequency>
+                                        <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="biannually"/>
+                                    </mmi:maintenanceAndUpdateFrequency>
+                                </xsl:when>
+                                <xsl:when test="/metadata/dataIdInfo/resMaint/maintFreq/MaintFreqCd/@value[. = '008']">
+                                    <mmi:maintenanceAndUpdateFrequency>
+                                        <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="annually"/>
+                                    </mmi:maintenanceAndUpdateFrequency>
+                                </xsl:when>
+                                <xsl:when test="/metadata/dataIdInfo/resMaint/maintFreq/MaintFreqCd/@value[. = '009']">
+                                    <mmi:maintenanceAndUpdateFrequency>
+                                        <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="asNeeded"/>
+                                    </mmi:maintenanceAndUpdateFrequency>
+                                </xsl:when>
+                                <xsl:when test="/metadata/dataIdInfo/resMaint/maintFreq/MaintFreqCd/@value[. = '010']">
+                                    <mmi:maintenanceAndUpdateFrequency>
+                                        <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="irregular"/>
+                                    </mmi:maintenanceAndUpdateFrequency>
+                                </xsl:when>
+                                <xsl:when test="/metadata/dataIdInfo/resMaint/maintFreq/MaintFreqCd/@value[. = '011']">
+                                    <mmi:maintenanceAndUpdateFrequency>
+                                        <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="notPlanned"/>
+                                    </mmi:maintenanceAndUpdateFrequency>
+                                </xsl:when>
+                                <xsl:when test="/metadata/dataIdInfo/resMaint/maintFreq/MaintFreqCd/@value[. = '012']">
+                                    <mmi:maintenanceAndUpdateFrequency>
+                                        <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_MaintenanceFrequencyCode" codeListValue="unknown"/>
+                                    </mmi:maintenanceAndUpdateFrequency>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <mmi:maintenanceAndUpdateFrequency gco:nilReason="missing"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </mmi:MD_MaintenanceInformation>
+                    </mri:resourceMaintenance>
                     <xsl:choose>
                         <xsl:when test="/metadata/dataIdInfo/searchKeys/keyword">
                             <mri:descriptiveKeywords>

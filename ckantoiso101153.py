@@ -35,8 +35,16 @@ def ckan_dataset_to_19115(dataset):
     }
     xsdmap = {
         "mdb": "http://standards.iso.org/iso/19115/-3/mdb/2.0/mdb.xsd",
-        "gfc": "http://standards.iso.org/iso/19110/gfc/1.1/gfc.xsd",
-        "gml": "http://schemas.opengis.net/gml/3.2.1/gml.xsd"
+        "gfc": "https://standards.iso.org/iso/19110/gfc/1.1/featureCatalogue.xsd",
+        "cit": "https://standards.iso.org/iso/19115/-3/cit/2.0/citation.xsd",
+        "gex": "https://standards.iso.org/iso/19115/-3/gex/1.0/extent.xsd",
+        "mcc": "https://standards.iso.org/iso/19115/-3/mcc/1.0/mcc.xsd",
+        "mmi": "https://standards.iso.org/iso/19115/-3/mmi/1.0/maintenance.xsd",
+        "mri": "https://standards.iso.org/iso/19115/-3/mri/1.0/identification.xsd",
+        "gco": "https://standards.iso.org/iso/19115/-3/gco/1.0/baseTypes2014.xsd",
+
+        "gml": "https://standards.iso.org/iso/19136/gml.xsd",
+        "gml": "http://schemas.opengis.net/gml/3.2.1/gml.xsd",
     }
     schemaLocations = ""
     for shortname in xsdmap.keys():
@@ -45,6 +53,7 @@ def ckan_dataset_to_19115(dataset):
     def n(key):
         namespace, key = key.split(":")
         return "{{{}}}{}".format(nsmap[namespace], key)
+
     def na(key, value):
         return {n(key):value}
     
@@ -60,8 +69,12 @@ def ckan_dataset_to_19115(dataset):
             else:
                 tally(misses, full_key, dataset["id"])
                 return default
-        tally(hit, key, dataset["id"])
-        return data
+        if data == "":
+            tally(misses, full_key, dataset["id"])
+            return default
+        else:
+            tally(hit, key, dataset["id"])
+            return data
 
     def cit_data(value):
         if value is None:
@@ -69,6 +82,14 @@ def ckan_dataset_to_19115(dataset):
         else:
             return E(n("cit:date"), 
                 E(n("gco:Date"), value)
+            )
+
+    def cit_alternateTitle(value):
+        if value is None:
+            return  E(n("mri:descriptiveKeywords"), na("gco:nilReason", "missing"))
+        else:
+            return E(n("cit:alternateTitle"),
+                E(n("gco:CharacterString"), value)
             )
 
     def mri_abstract(value):
@@ -87,6 +108,23 @@ def ckan_dataset_to_19115(dataset):
                 E(n("gco:CharacterString"), value)
             )
 
+    def mmi_maintenanceAndUpdateFrequency(value):
+        code_values = ["continual", "daily", "weekly", "fortnightly", "monthly", "quarterly", "biannually", "annually", "asNeeded", "irregular", "notPlanned", "unknown"]
+        remap = {
+            "infrequent": "irregular",
+            "static": "notPlanned",
+            "frequent": "continual",
+            "yearly": "annually",
+        }
+        if value in remap:
+            value = remap[value]
+        if value not in code_values:
+            return  E(n("mmi:maintenanceAndUpdateFrequency"), na("gco:nilReason", "missing"))
+        else:
+            return E(n("mmi:maintenanceAndUpdateFrequency"),
+                E(n("mmi:MD_MaintenanceFrequencyCode"), {"codeList":"http://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_MaintenanceFrequencyCode", "codeListValue":value})
+            )
+
     def mri_descriptiveKeywords(values):
         if values is None:
             return  E(n("mri:descriptiveKeywords"), na("gco:nilReason", "missing"))
@@ -100,14 +138,6 @@ def ckan_dataset_to_19115(dataset):
                 keywords_element.append(keyword_element)
             descriptiveKeywords_element.append(keywords_element)
             return descriptiveKeywords_element
-
-    def cit_alternateTitle(value):
-        if value is None:
-            return  E(n("mri:descriptiveKeywords"), na("gco:nilReason", "missing"))
-        else:
-            return E(n("cit:alternateTitle"),
-                E(n("gco:CharacterString"), value)
-            )
 
     E = ElementMaker(namespace=nsmap["mdb"], nsmap=nsmap)
     doc = E("MD_Metadata", na("xsi:schemaLocation", schemaLocations),
@@ -204,6 +234,11 @@ def ckan_dataset_to_19115(dataset):
                 ),
                 mri_abstract(ds("notes", None)),
                 mri_credit(ds("organization.title", None)),
+                E(n("mri:resourceMaintenance"),
+                    E(n("mmi:MD_MaintenanceInformation"),
+                        mmi_maintenanceAndUpdateFrequency(ds("update_frequency", None)),
+                    )
+                ),
                 mri_descriptiveKeywords(ds("tags", None)),
             )
         )
@@ -226,7 +261,7 @@ def test_batch(count=10, shuffle=False, offset=0):
     i = offset
     if shuffle:
         import random
-        random.shuffle(datasets)    
+        random.shuffle(datasets)
     for name in datasets[offset:(offset + count)]:
         i += 1
         print(i, name)
@@ -235,13 +270,10 @@ def test_batch(count=10, shuffle=False, offset=0):
         except urllib.error.HTTPError as httperror:
             print("Error loading {}: {}".format(name, httperror))
 
-
 if __name__ == "__main__":
     #test_batch(shuffle=True)
-    test_batch(count=10, shuffle=True, offset=0)
+    test_batch(count=4, shuffle=False, offset=0)
     #test_single("commercial-building-disclosure")
 
     for field in misses:
         print("misses '{}': {}".format(field, len(misses[field])))
-
-
