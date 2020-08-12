@@ -24,7 +24,7 @@
                 xmlns:cat="http://standards.iso.org/iso/19115/-3/cat/1.0"
                 xmlns:gfc="http://standards.iso.org/iso/19110/gfc/1.1"
                 xmlns:gml="http://www.opengis.net/gml/3.2"
-                xsi:schemaLocation="http://standards.iso.org/iso/19115/-3/mdb/2.0 http://standards.iso.org/iso/19115/-3/mdb/2.0/mdb.xsd http://standards.iso.org/iso/19110/gfc/1.1 https://standards.iso.org/iso/19110/gfc/1.1/featureCatalogue.xsd http://standards.iso.org/iso/19115/-3/cit/2.0 https://standards.iso.org/iso/19115/-3/cit/2.0/citation.xsd http://standards.iso.org/iso/19115/-3/gex/1.0 https://standards.iso.org/iso/19115/-3/gex/1.0/extent.xsd http://standards.iso.org/iso/19115/-3/mcc/1.0 https://standards.iso.org/iso/19115/-3/mcc/1.0/mcc.xsd http://standards.iso.org/iso/19115/-3/mmi/1.0 https://standards.iso.org/iso/19115/-3/mmi/1.0/maintenance.xsd http://standards.iso.org/iso/19115/-3/mri/1.0 https://standards.iso.org/iso/19115/-3/mri/1.0/identification.xsd http://standards.iso.org/iso/19115/-3/gco/1.0 https://standards.iso.org/iso/19115/-3/gco/1.0/baseTypes2014.xsd "
+                xsi:schemaLocation="http://standards.iso.org/iso/19115/-3/mdb/2.0 http://standards.iso.org/iso/19115/-3/mdb/2.0/mdb.xsd http://standards.iso.org/iso/19110/gfc/1.1 https://standards.iso.org/iso/19110/gfc/1.1/featureCatalogue.xsd http://standards.iso.org/iso/19115/-3/cit/2.0 https://standards.iso.org/iso/19115/-3/cit/2.0/citation.xsd http://standards.iso.org/iso/19115/-3/gex/1.0 https://standards.iso.org/iso/19115/-3/gex/1.0/extent.xsd http://standards.iso.org/iso/19115/-3/mcc/1.0 https://standards.iso.org/iso/19115/-3/mcc/1.0/mcc.xsd http://standards.iso.org/iso/19115/-3/mmi/1.0 https://standards.iso.org/iso/19115/-3/mmi/1.0/maintenance.xsd http://standards.iso.org/iso/19115/-3/mri/1.0 https://standards.iso.org/iso/19115/-3/mri/1.0/identification.xsd http://standards.iso.org/iso/19115/-3/gco/1.0 https://standards.iso.org/iso/19115/-3/gco/1.0/baseTypes2014.xsd http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd"
                 version="1.0"
                 >
     <xsl:template match="/">
@@ -154,6 +154,33 @@
                             <mri:credit gco:nilReason="missing"/>
                         </xsl:otherwise>
                     </xsl:choose>
+                    <mri:extent>
+                        <gex:EX_Extent>
+                            <xsl:choose>
+                                <xsl:when test="/metadata/dataIdInfo/dataExt/geoEle/GeoBndBox">
+                                    <gex:geographicElement>
+                                        <gex:EX_GeographicBoundingBox>
+                                            <gex:westBoundLongitude>
+                                                <gco:Decimal><xsl:value-of select="/metadata/dataIdInfo/dataExt/geoEle/GeoBndBox/westBL"/></gco:Decimal>
+                                            </gex:westBoundLongitude>
+                                            <gex:eastBoundLongitude>
+                                                <gco:Decimal><xsl:value-of select="/metadata/dataIdInfo/dataExt/geoEle/GeoBndBox/eastBL"/></gco:Decimal>
+                                            </gex:eastBoundLongitude>
+                                            <gex:southBoundLatitude>
+                                                <gco:Decimal><xsl:value-of select="/metadata/dataIdInfo/dataExt/geoEle/GeoBndBox/southBL"/></gco:Decimal>
+                                            </gex:southBoundLatitude>
+                                            <gex:northBoundLatitude>
+                                                <gco:Decimal><xsl:value-of select="/metadata/dataIdInfo/dataExt/geoEle/GeoBndBox/northBL"/></gco:Decimal>
+                                            </gex:northBoundLatitude>
+                                        </gex:EX_GeographicBoundingBox>
+                                    </gex:geographicElement>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <gex:geographicElement gco:nilReason="missing"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </gex:EX_Extent>
+                    </mri:extent>
                     <mri:resourceMaintenance>
                         <mmi:MD_MaintenanceInformation>
                             <xsl:choose>

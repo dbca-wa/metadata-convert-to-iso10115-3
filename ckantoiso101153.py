@@ -2,6 +2,7 @@ import urllib.request, json
 from lxml.builder import ElementMaker
 from lxml import etree
 from collections import defaultdict
+from io import StringIO
 
 
 misses = {}
@@ -76,6 +77,30 @@ def ckan_dataset_to_19115(dataset):
             tally(hit, key, dataset["id"])
             return data
 
+    def pointstrings_to_bounds(pointstrings):
+        if len(pointstrings) > 0 and type(pointstrings[0]) is list:
+            west = 180
+            east = -180
+            south = 90
+            north = -90
+            for substring in pointstrings:
+                west1, east1, south1, north1 = pointstrings_to_bounds(substring)
+                west = min(west, west1)
+                east = max(east, east1)
+                south = min(south, south1)
+                north = max(north, north1)
+            return west, east, south, north
+        if len(pointstrings) == 2:
+            return pointstrings[0], pointstrings[0], pointstrings[1], pointstrings[1]
+        print("should not hit")
+
+    def find_bounds():
+        spatial = ds("spatial", None)
+        if spatial is None:
+            return None
+        coords = json.load(StringIO(dataset["spatial"]))["coordinates"]
+        return pointstrings_to_bounds(coords)
+
     def cit_data(value):
         if value is None:
             return E(n("cit:date"), na("gco:nilReason", "missing"))
@@ -106,6 +131,29 @@ def ckan_dataset_to_19115(dataset):
         else:
             return E(n("mri:credit"),
                 E(n("gco:CharacterString"), value)
+            )
+
+    def gex_geographicElement():
+        bounds = find_bounds()
+        if bounds is None:
+            return E(n("gex:geographicElement"), na("gco:nilReason", "missing"))
+        else:
+            (west, east, south, north) = bounds
+            return E(n("gex:geographicElement"),
+                E(n("gex:EX_GeographicBoundingBox"),
+                    E(n("gex:westBoundLongitude"),
+                        E(n("gco:Decimal"), str(west)),
+                    ),
+                    E(n("gex:eastBoundLongitude"),
+                        E(n("gco:Decimal"), str(east)),
+                    ),
+                    E(n("gex:southBoundLatitude"),
+                        E(n("gco:Decimal"), str(south)),
+                    ),
+                    E(n("gex:northBoundLatitude"),
+                        E(n("gco:Decimal"), str(north)),
+                    ),
+                )
             )
 
     def mmi_maintenanceAndUpdateFrequency(value):
@@ -234,6 +282,11 @@ def ckan_dataset_to_19115(dataset):
                 ),
                 mri_abstract(ds("notes", None)),
                 mri_credit(ds("organization.title", None)),
+                E(n("mri:extent"),
+                    E(n("gex:EX_Extent"),
+                        gex_geographicElement(),
+                    ),
+                ),
                 E(n("mri:resourceMaintenance"),
                     E(n("mmi:MD_MaintenanceInformation"),
                         mmi_maintenanceAndUpdateFrequency(ds("update_frequency", None)),
